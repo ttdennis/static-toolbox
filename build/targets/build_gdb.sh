@@ -18,7 +18,7 @@ build_gdb() {
     fetch "$GIT_BINUTILS_GDB" "${BUILD_DIRECTORY}/binutils-gdb" git
     cd "${BUILD_DIRECTORY}/binutils-gdb/" || { echo "Cannot cd to ${BUILD_DIRECTORY}/binutils-gdb/"; exit 1; }
     git clean -fdx
-    git checkout gdb-12.1-release
+    git checkout gdb-10.1-release
     CMD="CFLAGS=\"${GCC_OPTS}\" "
     CMD+="CXXFLAGS=\"${GXX_OPTS}\" "
     CMD+="LDFLAGS=\"-static\" "
@@ -27,7 +27,7 @@ build_gdb() {
         CMD+="CPP_FOR_BUILD=\"/x86_64-linux-musl-cross/bin/x86_64-linux-musl-g++\" "
     fi
     CMD+="${BUILD_DIRECTORY}/binutils-gdb/configure --build=x86_64-linux-musl --host=$(get_host_triple) "
-    CMD+="--disable-shared --enable-static --enable-gdbserver --disable-nls --disable-inprocess-agent"
+    CMD+="--disable-shared --enable-static --enable-gprofng=no --enable-gdbserver --disable-nls --disable-inprocess-agent"
 
     mkdir -p "${BUILD_DIRECTORY}/gdb_build"
     cd "${BUILD_DIRECTORY}/gdb_build/"
