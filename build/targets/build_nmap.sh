@@ -16,13 +16,9 @@ source $GITHUB_WORKSPACE/build/lib.sh
 init_lib $1
 
 # macOS hack, use gnu sed to be compatible with Linux
-sed() {
-    if [[ $OSTYPE == 'darwin'* ]]; then 
-        gsed $@
-    else
-        sed $@
-    fi
-}
+if [[ $OSTYPE == 'darwin'* ]]; then 
+    export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+fi
 
 build_nmap() {
     fetch "https://github.com/nmap/nmap.git" "${BUILD_DIRECTORY}/nmap" git
