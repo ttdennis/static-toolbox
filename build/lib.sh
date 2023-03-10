@@ -77,7 +77,7 @@ fetch(){
         filename=$(trim "$filename")
         extract "$filename" "$destination"
         trap "rm -rf ${headers} /tmp/'${filename}'" EXIT TERM
-    elif [ "${method,,}" == "git" ];then
+    elif [ "$method" == "git" ];then
         git clone "$source" "$destination"
     else
         echo "Invalid method ${method}"
