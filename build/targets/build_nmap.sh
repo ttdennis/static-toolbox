@@ -38,6 +38,7 @@ build_nmap() {
             --without-libssh2 \
             --with-pcap=linux \
             --with-openssl="${BUILD_DIRECTORY}/openssl"
+        cat config.log
     sed -i -e "s/shared\: /shared\: #/" "${BUILD_DIRECTORY}/nmap/libpcap/Makefile"
     make
     strip nmap ncat/ncat nping/nping
