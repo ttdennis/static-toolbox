@@ -21,7 +21,7 @@ jobs:
 
         - name: Package Nmap
           id: package_nmap
-          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output x86
+          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /tmp/output x86
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2
@@ -51,7 +51,7 @@ jobs:
 
         - name: Package Nmap
           id: package_nmap
-          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output x86_64
+          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /tmp/output x86_64
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2
@@ -81,7 +81,7 @@ jobs:
 
         - name: Package Nmap
           id: package_nmap
-          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output armhf
+          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /tmp/output armhf
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2
@@ -111,7 +111,7 @@ jobs:
 
         - name: Package Nmap
           id: package_nmap
-          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output aarch64
+          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /tmp/output aarch64
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2
@@ -140,7 +140,7 @@ jobs:
 
         - name: Package Nmap
           id: package_nmap
-          run: bash $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output macos-x86_64
+          run: bash $GITHUB_WORKSPACE/package/targets/nmap/package.sh /tmp/output macos-x86_64
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2

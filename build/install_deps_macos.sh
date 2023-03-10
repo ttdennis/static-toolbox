@@ -4,4 +4,5 @@ brew install \
     libssh2 \
     lua \
     openssl@1.1 \
-    pcre
+    pcre \
+    gnu-sed
