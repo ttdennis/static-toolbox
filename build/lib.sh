@@ -69,7 +69,7 @@ fetch(){
         echo "Destination ${destination} already exists, skipping."
         return
     fi
-    if [ "${method,,}" == "http" ];then
+    if [ "$method" == "http" ];then
         cd /tmp || { echo "Could not cd to /tmp"; exit 1; }
         headers=$(mktemp headers.XXXXXX)
         curl -L -D "$headers" -sOJ "$source"
