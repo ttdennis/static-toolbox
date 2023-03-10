@@ -7,5 +7,5 @@ brew install \
     pcre
 
 # install GNU tools
-brew install --default-names gnu-sed
+brew install gnu-sed --with-default-names
 which sed
