@@ -5,4 +5,5 @@ brew install \
     lua \
     openssl@1.1 \
     pcre \
-    gnu-sed
+    gnu-sed \
+    gcc 

@@ -27,8 +27,8 @@ build_nmap() {
     # make sure we only build the static libraries
     sed -i '/build-zlib: $(ZLIBDIR)\/Makefile/!b;n;c\\t@echo Compiling zlib; cd $(ZLIBDIR) && $(MAKE) static;' "${BUILD_DIRECTORY}/nmap/Makefile.in"
     if [[ $OSTYPE == 'darwin'* ]]; then
-        CC='gcc-12 -static -fPIC' \
-            CXX='g++-12 -static -static-libstdc++ -fPIC' \
+        CC='gcc -static -fPIC' \
+            CXX='g++ -static -static-libstdc++ -fPIC' \
             LD=ld \
             LDFLAGS="-L${BUILD_DIRECTORY}/openssl" \
             ./configure \
