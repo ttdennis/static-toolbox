@@ -136,11 +136,11 @@ jobs:
           run: bash build/install_deps_macos.sh
 
         - name: Build Nmap
-          run: $GITHUB_WORKSPACE/build/targets/build_nmap.sh macos-x86_64
+          run: bash $GITHUB_WORKSPACE/build/targets/build_nmap.sh macos-x86_64
 
         - name: Package Nmap
           id: package_nmap
-          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output macos-x86_64
+          run: bash $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output macos-x86_64
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2

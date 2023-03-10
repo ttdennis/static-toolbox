@@ -23,7 +23,7 @@ build_nmap() {
     CC='gcc -static -fPIC' \
         CXX='g++ -static -static-libstdc++ -fPIC' \
         LD=ld \
-        LDFLAGS="-L/build/openssl" \
+        LDFLAGS="-L${BUILD_DIRECTORY}/openssl" \
         ./configure \
             --host="$(get_host_triple)" \
             --without-ndiff \
