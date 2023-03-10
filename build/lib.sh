@@ -214,7 +214,7 @@ lib_build_openssl(){
         openssl_arch="linux-x86_64"
     elif [ "${CURRENT_ARCH}" == "aarch64" ];then
         openssl_arch="linux-generic64"
-    elif [ "${CURRENT_ARCH}" == "macos-x86_64"];then
+    elif [ "${CURRENT_ARCH}" == "macos-x86_64" ];then
         openssl_arch="darwin64-x86_64-cc"
     fi
     CFLAGS="${GCC_OPTS}" \
