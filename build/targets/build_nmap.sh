@@ -19,7 +19,11 @@ build_nmap() {
     cd "${BUILD_DIRECTORY}/nmap"
     git clean -fdx || true
     # make sure we only build the static libraries
-    sed -i '/build-zlib: $(ZLIBDIR)\/Makefile/!b;n;c\\t@echo Compiling zlib; cd $(ZLIBDIR) && $(MAKE) static;' "${BUILD_DIRECTORY}/nmap/Makefile.in"
+    if [[ $OSTYPE == 'darwin'* ]]; then
+        sed -i '' '/build-zlib: $(ZLIBDIR)\/Makefile/!b;n;c\\t@echo Compiling zlib; cd $(ZLIBDIR) && $(MAKE) static;' "${BUILD_DIRECTORY}/nmap/Makefile.in"
+    else
+        sed -i '/build-zlib: $(ZLIBDIR)\/Makefile/!b;n;c\\t@echo Compiling zlib; cd $(ZLIBDIR) && $(MAKE) static;' "${BUILD_DIRECTORY}/nmap/Makefile.in"
+    fi 
     CC='gcc -static -fPIC' \
         CXX='g++ -static -static-libstdc++ -fPIC' \
         LD=ld \
