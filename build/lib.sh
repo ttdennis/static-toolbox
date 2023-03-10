@@ -5,8 +5,8 @@ GIT_READLINE="https://git.savannah.gnu.org/git/readline.git"
 GIT_NCURSES="https://github.com/ThomasDickey/ncurses-snapshots.git"
 GIT_LIBPCAP="https://github.com/the-tcpdump-group/libpcap.git"
 
-BUILD_DIRECTORY="/build"
-OUTPUT_DIRECTORY="/output"
+BUILD_DIRECTORY="/tmp/build"
+OUTPUT_DIRECTORY="/tmp/output"
 GCC_OPTS="-static -fPIC"
 GXX_OPTS="-static -static-libstdc++ -fPIC"
 TMP_DIR=$(mktemp -dt building_lib.XXXXXX)

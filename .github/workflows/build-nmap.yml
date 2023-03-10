@@ -125,8 +125,8 @@ jobs:
               name: ${{ steps.package_nmap.outputs.PACKAGED_ZIP }}
               path: ${{ steps.package_nmap.outputs.PACKAGED_ZIP_PATH }}
 
-    build-macos:
-      name: Build Nmap macOS Intel
+    build-macos-x86_64:
+      name: Build Nmap macOS Intel x86_64
       runs-on: macos-latest
       steps:
         - name: Checkout
@@ -136,11 +136,11 @@ jobs:
           run: bash build/install_deps_macos.sh
 
         - name: Build Nmap
-          run: $GITHUB_WORKSPACE/build/targets/build_nmap.sh macos
+          run: $GITHUB_WORKSPACE/build/targets/build_nmap.sh macos-x86_64
 
         - name: Package Nmap
           id: package_nmap
-          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output macos
+          run: $GITHUB_WORKSPACE/package/targets/nmap/package.sh /output macos-x86_64
 
         - name: Upload tarball
           uses: actions/upload-artifact@v2
@@ -157,7 +157,7 @@ jobs:
     create-release:
       name: Create Nmap Release
       runs-on: ubuntu-latest
-      needs: [build-x86, build-x86_64, build-armhf, build-aarch64, build-macos]
+      needs: [build-x86, build-x86_64, build-armhf, build-aarch64, build-macos-x86_64]
       steps:
         - name: Checkout
           uses: actions/checkout@v2
