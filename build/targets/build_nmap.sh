@@ -11,6 +11,10 @@ fi
 set -e
 set -o pipefail
 set -x
+
+# macOS hack, use gnu sed to be compatible with Linux
+alias sed="gsed"
+
 source $GITHUB_WORKSPACE/build/lib.sh
 init_lib $1
 
@@ -25,6 +29,7 @@ build_nmap() {
         LD=ld \
         LDFLAGS="-L${BUILD_DIRECTORY}/openssl" \
         ./configure \
+            --host="$(get_host_triple)" \
             --without-ndiff \
             --without-zenmap \
             --without-nmap-update \

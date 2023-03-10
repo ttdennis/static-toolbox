@@ -6,5 +6,3 @@ brew install \
     openssl@1.1 \
     pcre \
     gnu-sed
-
-alias sed="gsed"
