@@ -27,7 +27,7 @@ build_hydra() {
     fi
     CMD+="./configure -DWITH_SSH1=On --host=$(get_host_triple)"
     eval "$CMD"
-    make CFLAGS="-w"
+    make CFLAGS="-w ${GCC_OPTS}" -j4
     strip "${BUILD_DIRECTORY}/thc-hydra/hydra"
 }
 
