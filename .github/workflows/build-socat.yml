@@ -2,7 +2,7 @@ name: socat
 on:
   push:
     branches:
-      - hydra
+      - socat-ppc
 jobs:
     build-x86:
       name: Build socat x86
